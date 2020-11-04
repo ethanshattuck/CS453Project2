@@ -26,24 +26,30 @@ public interface HelloWorld {
      * @return
      *     returns java.lang.String
      */
-    @WebMethod(operationName = "SayHey")
-    @WebResult(partName = "return")
-    @Action(input = "http://myHelloWorld/HelloWorld/SayHeyRequest", output = "http://myHelloWorld/HelloWorld/SayHeyResponse")
-    public String sayHey(
-        @WebParam(name = "arg0", partName = "arg0")
-        String arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.lang.String
-     */
     @WebMethod(operationName = "HelloWorld")
     @WebResult(partName = "return")
     @Action(input = "http://myHelloWorld/HelloWorld/HelloWorldRequest", output = "http://myHelloWorld/HelloWorld/HelloWorldResponse")
     public String helloWorld(
         @WebParam(name = "arg0", partName = "arg0")
         String arg0);
+
+    /**
+     * 
+     * @param arg2
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://myHelloWorld/HelloWorld/runSimulationRequest", output = "http://myHelloWorld/HelloWorld/runSimulationResponse")
+    public String runSimulation(
+        @WebParam(name = "arg0", partName = "arg0")
+        String arg0,
+        @WebParam(name = "arg1", partName = "arg1")
+        String arg1,
+        @WebParam(name = "arg2", partName = "arg2")
+        String arg2);
 
 }

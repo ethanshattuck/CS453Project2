@@ -13,6 +13,6 @@ public interface HelloWorld{
  
 	@WebMethod String HelloWorld(String name);
 	
-	@WebMethod String SayHey(String name);
+	@WebMethod String runSimulation(String classA, String classB, String classC);
  
 }

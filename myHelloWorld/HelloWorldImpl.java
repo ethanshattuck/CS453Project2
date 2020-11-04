@@ -14,9 +14,12 @@ public class HelloWorldImpl implements HelloWorld{
 	}
 	
 	@Override
-	public String SayHey(String name) {
-		System.out.println(name+" says Fuck you");
-		return "Frick";
+	public String runSimulation(String classA, String classB, String classC) {
+		
+		//build objects and rum simulation
+		
+		System.out.println("Start Simulation Function");
+		return "Ran Simulation";
 	}
  
 }

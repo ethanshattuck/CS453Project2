@@ -12,6 +12,10 @@ public class Student {
 		this.handSanitizer = handSantizer;
 	}
 	
+	public Student()
+	{
+	}
+	
 	public int getSeatNumber()
 	{
 		return seatNumber;
