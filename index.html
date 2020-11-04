@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<!--Form for Selecting Number of Students in Classroom #1-->
+<form>
+	<label for="numStudents1">Number of Students in Classroom #1:</label>
+   <select id="numStudents1" name="numberOfStudents">
+		<option value="-">-</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+   </select>
+   <button type ="button" onclick ="sendNumStudents(this.form, 1)">
+    Submit
+   </button>
+</form>
+
+<!--Area for responseText of php script which is a configuration area for Classroom #1-->
+<div style="margin-bottom:50px;" id="studentList1"></div>
+
+<!--Form for Selecting Number of Students in Classroom #2-->
+<form>
+	<label for="numStudents2">Number of Students in Classroom #2:</label>
+   <select id="numStudents2" name="numberOfStudents">
+		<option value="-">-</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+   </select>
+   <button type ="button" onclick ="sendNumStudents(this.form, 2)">
+    Submit
+   </button>
+</form>
+
+<!--Area for responseText of php script which is a configuration area for Classroom #2-->
+<div style="margin-bottom:50px;" id="studentList2"></div>
+
+<!--Form for Selecting Number of Students in Classroom #3-->
+<form>
+	<label for="numStudents3">Number of Students in Classroom #3:</label>
+   <select id="numStudents3" name="numberOfStudents">
+		<option value="-">-</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+   </select>
+   <button type ="button" onclick ="sendNumStudents(this.form, 3)">
+    Submit
+   </button>
+</form>
+
+<!--Area for responseText of php script which is a configuration area for Classroom #3-->
+<div style="margin-bottom:25px;" id="studentList3"></div>
+
+
+
+<!-- Buttons for Starting and Stopping Simulation -->
+<!-- Start Simulation only becomes active after all three configurations have been sent to the server -->
+<button id="startSim" onclick="displayEvents()" disabled>Start Simulation</button>
+
+<!-- This button will stop the Simulation if it is running -->
+<button id ="stopSim" onclick="stopSimulation()" disabled>End Simulation</button>
+
+<!-- HTML for Classroom #1's Layout -->
+<h3>Classroom #1</h3>
+<table style="width:100%">
+  <tr>
+    <td>
+		<p>Room Entrance Hand Sanitizer Station</p>
+		<p id="1entrance"></p>
+	</td>
+    <td rowspan=3>Aisleway</td>
+    <td>
+		<p>Teacher Rectangle</p>
+		<p id="1teacherrect"></p>
+	</td>
+    <td colspan="4">
+		<p>	Question Rectangle</p>
+		<p id="1questionrectangle"></p>
+	</td>
+  </tr>
+  <tr>
+    <td>
+		<p>	Student Rectangle #1</p>
+		<p id="1studentrect1"></p>
+	</td>
+
+    <td>
+		<p>	Student Rectangle #2</p>
+		<p id="1studentrect2"></p>
+	</td>
+	
+    <td rowspan=2>Aisleway</td>
+	
+    <td>
+		<p>	Student Rectangle #3</p>
+		<p id="1studentrect3"></p>
+	</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+		<p>	Student Rectangle #5</p>
+		<p id="1studentrect5"></p>
+	</td>
+	
+    <td>
+		<p>	Student Rectangle #4</p>
+		<p id="1studentrect4"></p>
+	</td>
+  </tr>
+  <tr>
+    <td colspan=5>Aisleway</td>
+  </tr>
+</table>
+
+<!-- HTML for Classroom #2's Layout -->
+<h3>Classroom #2</h3>
+<table style="width:100%">
+  <tr>
+    <td>
+		<p>Room Entrance Hand Sanitizer Station</p>
+		<p id="2entrance"></p>
+	</td>
+    <td rowspan=3>Aisleway</td>
+    <td>
+		<p>Teacher Rectangle</p>
+		<p id="2teacherrect"></p>
+	</td>
+    <td colspan="4">
+		<p>	Question Rectangle</p>
+		<p id="2questionrectangle"></p>
+	</td>
+  </tr>
+  <tr>
+    <td>
+		<p>	Student Rectangle #1</p>
+		<p id="2studentrect1"></p>
+	</td>
+
+    <td>
+		<p>	Student Rectangle #2</p>
+		<p id="2studentrect2"></p>
+	</td>
+	
+    <td rowspan=2>Aisleway</td>
+	
+    <td>
+		<p>	Student Rectangle #3</p>
+		<p id="2studentrect3"></p>
+	</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+		<p>	Student Rectangle #5</p>
+		<p id="2studentrect5"></p>
+	</td>
+	
+    <td>
+		<p>	Student Rectangle #4</p>
+		<p id="2studentrect4"></p>
+	</td>
+  </tr>
+  <tr>
+    <td colspan=5>Aisleway</td>
+  </tr>
+</table>
+
+<!-- HTML for Classroom #3's Layout -->
+<h3>Classroom #3</h3>
+<table style="width:100%">
+  <tr>
+    <td>
+		<p>Room Entrance Hand Sanitizer Station</p>
+		<p id="3entrance"></p>
+	</td>
+    <td rowspan=3>Aisleway</td>
+    <td>
+		<p>Teacher Rectangle</p>
+		<p id="3teacherrect"></p>
+	</td>
+    <td colspan="4">
+		<p>	Question Rectangle</p>
+		<p id="3questionrectangle"></p>
+	</td>
+  </tr>
+  <tr>
+    <td>
+		<p>	Student Rectangle #1</p>
+		<p id="3studentrect1"></p>
+	</td>
+
+    <td>
+		<p>	Student Rectangle #2</p>
+		<p id="3studentrect2"></p>
+	</td>
+	
+    <td rowspan=2>Aisleway</td>
+	
+    <td>
+		<p>	Student Rectangle #3</p>
+		<p id="3studentrect3"></p>
+	</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+		<p>	Student Rectangle #5</p>
+		<p id="3studentrect5"></p>
+	</td>
+	
+    <td>
+		<p>	Student Rectangle #4</p>
+		<p id="3studentrect4"></p>
+	</td>
+  </tr>
+  <tr>
+    <td colspan=5>Aisleway</td>
+  </tr>
+</table>
+
+<!-- area for preventing Classroom #3 from being at the very bottom of the screen -->
+<div style="height: 100px;">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script type = "text/javascript">
+
+//function for sending XMLHttpRequest to server containing classroom number and number of students in designated classroom
+function sendNumStudents(theform, classNumber) {
+  request = new XMLHttpRequest();
+  request.open("GET","students.php?numStudents="+theform.numberOfStudents.value+"&classNumber="+classNumber);
+
+  request.onreadystatechange = function () {
+     if (request.readyState == 4)
+         sendNumStudents_callback(classNumber);
+  
+   }
+  request.send();
+
+} 
+
+//function that is called when the response from php script is ready.. places responseText in correct div
+//the returned responseText is the configuration table for a classroom
+function sendNumStudents_callback(classNumber) {
+
+    if (request.status == 200) {
+
+     
+	document.getElementById("studentList" + classNumber).innerHTML = request.responseText;
+    }
+    else if (request.status=404) {
+	alert("Server was not found: data returned is :\n"+request.responseText);
+
+    }
+}
+
+//this function is responsible for gathering the data from the configuration table and sending it to the server in a parse-able format
+//creates entries for number of students, the classroom number, an entry for each student's configuration values, an entry for the teacher's configuration values
+function sendConfigurationData(number) {
+	request = new XMLHttpRequest();
+	var error = false;
+	var takenSeats = [];
+	var numStudents = document.getElementById("numStudents" + number).value;
+	var sendStr = "numStudents="+numStudents;
+	sendStr += "&classNumber="+number;
+	if (numStudents != '-')
+	{
+		sendStr += "&";
+		for (var i = 1; i <= parseInt(numStudents); i++) {
+			var tempStr = "";
+			tempStr += "student"+i+"=";
+			
+			var seat = document.getElementById(""+number+"student"+i+"seat").value;
+			if (!isNaN(seat) && Number(seat) > 0 && Number(seat) < 6 && !takenSeats.includes(Number(seat)))
+			{
+				tempStr += seat;
+				takenSeats.push(Number(seat));
+			}
+			else {
+				alert("Invalid Seat Selection for Student " + i);
+				error = true;
+				break;
+			}
+			
+			var maskOn = Number(document.getElementById(""+number+"student"+i+"wearingmask").checked);
+			tempStr += maskOn;
+			var lysolBefore = Number(document.getElementById(""+number+"student"+i+"lysolbefore").checked);
+			tempStr += lysolBefore;
+			var question = Number(document.getElementById(""+number+"student"+i+"question").checked);
+			tempStr += question;
+			var visit = document.getElementById(""+number+"student"+i+"visit").value;
+			if (!isNaN(visit) && Number(visit) > 0 && Number(visit) < 6 && visit != seat)
+			{
+				tempStr += visit;
+			}
+			else {
+				tempStr += "0";
+			}
+			var lysolAfter = Number(document.getElementById(""+number+"student"+i+"lysolafter").checked);
+			tempStr += lysolAfter;
+			var handsanitizer = Number(document.getElementById(""+number+"student"+i+"handsanitizer").checked);
+			tempStr += handsanitizer;
+			tempStr += "&";
+			sendStr += tempStr;
+		}
+		var tempStr = "";
+		tempStr += "teacher=";
+		var maskOn = Number(document.getElementById(""+number+"teacherwearingmask").checked);
+		tempStr += maskOn;
+		var lysolBefore = Number(document.getElementById(""+number+"teacherlysolbefore").checked);
+		tempStr += lysolBefore;
+		var question = Number(document.getElementById(""+number+"teacherquestion").checked);
+		tempStr += question;
+		var lysolAfter = Number(document.getElementById(""+number+"teacherlysolafter").checked);
+		tempStr += lysolAfter;
+		var handsanitizer = Number(document.getElementById(""+number+"teacherhandsanitizer").checked);
+		tempStr += handsanitizer;
+		sendStr += tempStr;
+		alert(sendStr);
+	}
+	
+	if (error == false)
+	{
+		request.open("GET","simulation.php?"+sendStr);
+	
+		request.onreadystatechange = function () {
+		if (request.readyState == 4)
+			sendConfigurationData_callback(number);
+  
+		}
+		request.send();
+	}
+}
+
+//this function is responsible for stopping the simulation by changing the running flag to false
+function stopSimulation()
+{
+	running = false;
+}
+
+//global variable area
+var running = true;
+var class1str = "";
+var class2str = "";
+var class3str = "";
+
+//after all three configuration's have been sent and responses have returned, this function will display the events in an alternating order to simulate the classes running simultaneously
+async function displayEvents()
+{
+	document.getElementById("stopSim").disabled = false;
+	running = true;
+	
+	var class1commands = class1str.trim().split(";");
+	var class2commands = class2str.trim().split(";");
+	var class3commands = class3str.trim().split(";");
+	var commands = [];
+	
+	//alternates the order of the commands between classes 1, 2, and 3
+	for (var i = 0; i < Math.max(class1commands.length, class2commands.length, class3commands.length); i++)
+	{
+		if (i < class1commands.length)
+		{
+			commands.push(class1commands[i]);
+		}
+		if (i < class2commands.length)
+		{
+			commands.push(class2commands[i]);
+		}
+		if (i < class3commands.length)
+		{
+			commands.push(class3commands[i]);
+		}
+	}
+	
+	//for each command, the first section is the id, the next section is the content to go within the element, and the third section is the alert message
+	for (i in commands)
+	{
+		if (running)
+		{
+			command = commands[i].trim().split(":");
+			try {
+				document.getElementById(command[0]).innerHTML = command[1];
+			}
+			catch(err) {
+			}
+			alert(command[2]);
+			await new Promise(r => setTimeout(r, 1000));
+		}
+		//this occurs when the Stop Simulation button is pressed
+		else {
+			alert("Simulation Stopped");
+			break;
+		}
+	}
+}
+	
+//this is the callback function for when simulation data is returned to the client
+async function sendConfigurationData_callback(number) {
+	if (request.status == 200) {
+		alert(request.responseText);
+		//depending on the Classroom number, it will populate one of the global classroom strings. After each classroom string is populated, displayEvents can be called by pressing the Start Simulation button
+		if (parseInt(number) == 1)
+		{
+			class1str = request.responseText;
+		}
+		else if (parseInt(number) == 2)
+		{
+			class2str = request.responseText;
+		}
+		else {
+			class3str = request.responseText;
+		}
+		
+		if (class1str != "" && class2str != "" && class3str != "")
+		{
+			document.getElementById("startSim").disabled = false;
+		}
+	}
+    else if (request.status=404) {
+		alert("Server was not found: data returned is :\n"+request.responseText);
+    }
+}
+
+</script>
+
+</body>
+</html>
