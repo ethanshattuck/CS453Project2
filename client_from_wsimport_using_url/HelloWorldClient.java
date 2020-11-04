@@ -9,6 +9,10 @@ public class HelloWorldClient {
 
 	HelloWorld myinterface = myHelloWorld.getHelloWorldImplPort();
 	
+	//String a (class #?) = {numberOfStudents} {seatNumber}{[booleans]} 
+	
+	//String classA = 3 3011010 2101100 1000000
+	
 	String response = myinterface.runSimulation("a","b","c");
  
     System.out.println(response);
