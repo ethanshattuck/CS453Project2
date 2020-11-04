@@ -13,7 +13,7 @@ public class HelloWorldClient {
 	
 	//String classA = 3 3011010 2101100 1000000
 	
-	String response = myinterface.runSimulation("a","b","c");
+	String response = myinterface.runSimulation("3 3011010 2101100 1000000 00000","3 3011010 2101100 1000000 00000","3 3011010 2101100 1000000 00000");
  
     System.out.println(response);
    }
