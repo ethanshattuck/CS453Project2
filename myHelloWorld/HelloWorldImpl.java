@@ -235,7 +235,7 @@ public class HelloWorldImpl implements HelloWorld{
 		//Lysol After Class (Classroom #1)
 		for (int i = 1; i <= classANumStudents; i++)
 		{
-			if (classAVars[i].charAt(5) == '2')
+			if (classAVars[i].charAt(5) == '1')
 			{
 				System.out.println("Classroom #1: Student " + i + " applied Lysol after class");
 			}
@@ -255,7 +255,7 @@ public class HelloWorldImpl implements HelloWorld{
 		//Lysol After Class (Classroom #2)
 		for (int i = 1; i <= classBNumStudents; i++)
 		{
-			if (classBVars[i].charAt(5) == '2')
+			if (classBVars[i].charAt(5) == '1')
 			{
 				System.out.println("Classroom #2: Student " + i + " applied Lysol after class");
 			}
@@ -274,7 +274,7 @@ public class HelloWorldImpl implements HelloWorld{
 		//Lysol After Class (Classroom #3)
 		for (int i = 1; i <= classCNumStudents; i++)
 		{
-			if (classCVars[i].charAt(5) == '2')
+			if (classCVars[i].charAt(5) == '1')
 			{
 				System.out.println("Classroom #3: Student " + i + " applied Lysol after class");
 			}
@@ -297,7 +297,7 @@ public class HelloWorldImpl implements HelloWorld{
 		//HandSanitizer After Class (Classroom #1)
 		for (int i = 1; i <= classANumStudents; i++)
 		{
-			if (classAVars[i].charAt(6) == '2')
+			if (classAVars[i].charAt(6) == '1')
 			{
 				System.out.println("Classroom #1: Student " + i + " applied Hand Sanitizer after class");
 			}
@@ -317,7 +317,7 @@ public class HelloWorldImpl implements HelloWorld{
 		//HandSanitizer After Class (Classroom #2)
 		for (int i = 1; i <= classBNumStudents; i++)
 		{
-			if (classBVars[i].charAt(6) == '2')
+			if (classBVars[i].charAt(6) == '1')
 			{
 				System.out.println("Classroom #2: Student " + i + " applied Hand Sanitizer after class");
 			}
@@ -336,7 +336,7 @@ public class HelloWorldImpl implements HelloWorld{
 		//HandSanitizer After Class (Classroom #3)
 		for (int i = 1; i <= classCNumStudents; i++)
 		{
-			if (classCVars[i].charAt(6) == '2')
+			if (classCVars[i].charAt(6) == '1')
 			{
 				System.out.println("Classroom #3: Student " + i + " applied Hand Sanitizer after class");
 			}
