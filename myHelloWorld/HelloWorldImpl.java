@@ -104,10 +104,10 @@ public class HelloWorldImpl implements HelloWorld{
 			System.out.println("Classroom #3: ALARM (Sensor 2) Teacher is not wearing their mask");
 		}
 		
-		//Lysol Before Class (Classroom #1)
+		// Before Class (Classroom #1)
 		for (int i = 1; i <= classANumStudents; i++)
 		{
-			if (classAVars[i].charAt(1) == '2')
+			if (classAVars[i].charAt(2) == '1')
 			{
 				System.out.println("Classroom #1: Student " + i + " applied Lysol before class");
 			}
@@ -127,7 +127,7 @@ public class HelloWorldImpl implements HelloWorld{
 		//Lysol Before Class (Classroom #2)
 		for (int i = 1; i <= classBNumStudents; i++)
 		{
-			if (classBVars[i].charAt(1) == '2')
+			if (classBVars[i].charAt(2) == '2')
 			{
 				System.out.println("Classroom #2: Student " + i + " applied Lysol before class");
 			}
@@ -146,7 +146,7 @@ public class HelloWorldImpl implements HelloWorld{
 		//Lysol Before Class (Classroom #3)
 		for (int i = 1; i <= classCNumStudents; i++)
 		{
-			if (classCVars[i].charAt(1) == '2')
+			if (classCVars[i].charAt(2) == '2')
 			{
 				System.out.println("Classroom #3: Student " + i + " applied Lysol before class");
 			}
@@ -161,6 +161,233 @@ public class HelloWorldImpl implements HelloWorld{
 		else {
 			System.out.println("Classroom #3: Alarm (Sensor 3) Teacher did not apply Lysol before class");
 		}
+		
+		
+		
+		//Question logic (Classroom #1)
+		for (int i = 1; i <= classANumStudents; i++)
+		{
+			if (classAVars[i].charAt(3) == '1' && classAVars[classANumStudents+1].charAt(2) == '1')
+			{
+				System.out.println("Classroom #1: Alarm (Sensor 1) Student " + i + " and Teacher go to Question rectangle");
+			}
+			else if (classAVars[i].charAt(3) == '1' && classAVars[classANumStudents+1].charAt(2) == '0')
+			{
+				System.out.println("Classroom #1: Student " + i + " goes to Question rectangle");
+			}
+		}
+		
+		//Question logic (Classroom #2)
+		for (int i = 1; i <= classBNumStudents; i++)
+		{
+			if (classBVars[i].charAt(3) == '1' && classBVars[classBNumStudents+1].charAt(2) == '1')
+			{
+				System.out.println("Classroom #2: Alarm (Sensor 1) Student " + i + " and Teacher go to Question rectangle");
+			}
+			else if (classBVars[i].charAt(3) == '1' && classBVars[classBNumStudents+1].charAt(2) == '0')
+			{
+				System.out.println("Classroom #2: Student " + i + " goes to Question rectangle");
+			}
+		}
+		
+		//Question logic (Classroom #3)
+		for (int i = 1; i <= classCNumStudents; i++)
+		{
+			if (classCVars[i].charAt(3) == '1' && classCVars[classCNumStudents+1].charAt(2) == '1')
+			{
+				System.out.println("Classroom #3: Alarm (Sensor 1) Student " + i + " and Teacher go to Question rectangle");
+			}
+			else if (classCVars[i].charAt(3) == '1' && classCVars[classCNumStudents+1].charAt(2) == '0')
+			{
+				System.out.println("Classroom #3: Student " + i + " goes to Question rectangle");
+			}
+		}
+		
+		//Visit logic (Classroom #1)
+		for (int i = 1; i <= classANumStudents; i++)
+		{
+			char destination = classAVars[i].charAt(4);
+			char seat = classAVars[i].charAt(0);
+			boolean occupied = false;
+			for (int j = 1; j <= classANumStudents; j++)
+			{
+				if (classAVars[j].charAt(0) == destination && classAVars[j].charAt(0) != seat)
+				{
+					occupied = true;
+					System.out.println("Classroom #1: Alarm (Sensor 1) Student " + i + " visits Student " + j + "s desk");
+					System.out.println("Classroom #1: Student " + i + " returns to designated desk");
+				}
+			}
+			if (occupied == false && destination != '0')
+			{
+				System.out.println("Classroom #1: Student " + i + " visits Rectangle " + destination);
+				System.out.println("Classroom #1: Student " + i + " returns to designated desk");
+			}
+		}
+		
+		
+		
+		//-------Insert Question and Visit Logic--------------------/////
+		
+		
+		
+		
+		//Lysol After Class (Classroom #1)
+		for (int i = 1; i <= classANumStudents; i++)
+		{
+			if (classAVars[i].charAt(5) == '2')
+			{
+				System.out.println("Classroom #1: Student " + i + " applied Lysol after class");
+			}
+			else {
+				System.out.println("Classroom #1: Alarm (Sensor 3) Student " + i + " did not apply Lysol after class");
+			}
+		}
+		if (classAVars[classANumStudents+1].charAt(3) == '1')
+		{
+			System.out.println("Classroom #1: Teacher applied Lysol before class");
+		}
+		else {
+			System.out.println("Classroom #1: Alarm (Sensor 3) Teacher did not apply Lysol before class");
+		}
+
+		
+		//Lysol After Class (Classroom #2)
+		for (int i = 1; i <= classBNumStudents; i++)
+		{
+			if (classBVars[i].charAt(5) == '2')
+			{
+				System.out.println("Classroom #2: Student " + i + " applied Lysol after class");
+			}
+			else {
+				System.out.println("Classroom #2: Alarm (Sensor 3) Student " + i + " did not apply Lysol after class");
+			}
+		}
+		if (classBVars[classBNumStudents+1].charAt(3) == '1')
+		{
+			System.out.println("Classroom #2: Teacher applied Lysol after class");
+		}
+		else {
+			System.out.println("Classroom #2: Alarm (Sensor 3) Teacher did not apply Lysol after class");
+		}
+		
+		//Lysol After Class (Classroom #3)
+		for (int i = 1; i <= classCNumStudents; i++)
+		{
+			if (classCVars[i].charAt(5) == '2')
+			{
+				System.out.println("Classroom #3: Student " + i + " applied Lysol after class");
+			}
+			else {
+				System.out.println("Classroom #3: Alarm (Sensor 3) Student " + i + " did not apply Lysol after class");
+			}
+		}
+		if (classAVars[classCNumStudents+1].charAt(3) == '1')
+		{
+			System.out.println("Classroom #3: Teacher applied Lysol after class");
+		}
+		else {
+			System.out.println("Classroom #3: Alarm (Sensor 3) Teacher did not apply Lysol after class");
+		}
+		
+		
+		
+		
+		
+		//HandSanitizer After Class (Classroom #1)
+		for (int i = 1; i <= classANumStudents; i++)
+		{
+			if (classAVars[i].charAt(6) == '2')
+			{
+				System.out.println("Classroom #1: Student " + i + " applied Hand Sanitizer after class");
+			}
+			else {
+				System.out.println("Classroom #1: Alarm (Sensor 4) Student " + i + " did not apply Hand Sanitizer after class");
+			}
+		}
+		if (classAVars[classANumStudents+1].charAt(4) == '1')
+		{
+			System.out.println("Classroom #1: Teacher applied Hand Sanitizer before class");
+		}
+		else {
+			System.out.println("Classroom #1: Alarm (Sensor 4) Teacher did not apply Hand Sanitizer before class");
+		}
+
+		
+		//HandSanitizer After Class (Classroom #2)
+		for (int i = 1; i <= classBNumStudents; i++)
+		{
+			if (classBVars[i].charAt(6) == '2')
+			{
+				System.out.println("Classroom #2: Student " + i + " applied Hand Sanitizer after class");
+			}
+			else {
+				System.out.println("Classroom #2: Alarm (Sensor 4) Student " + i + " did not apply Hand Sanitizer after class");
+			}
+		}
+		if (classBVars[classBNumStudents+1].charAt(4) == '1')
+		{
+			System.out.println("Classroom #2: Teacher applied Hand Sanitizer after class");
+		}
+		else {
+			System.out.println("Classroom #2: Alarm (Sensor 4) Teacher did not apply Hand Sanitizer after class");
+		}
+		
+		//HandSanitizer After Class (Classroom #3)
+		for (int i = 1; i <= classCNumStudents; i++)
+		{
+			if (classCVars[i].charAt(6) == '2')
+			{
+				System.out.println("Classroom #3: Student " + i + " applied Hand Sanitizer after class");
+			}
+			else {
+				System.out.println("Classroom #3: Alarm (Sensor 4) Student " + i + " did not apply Hand Sanitizer after class");
+			}
+		}
+		if (classAVars[classCNumStudents+1].charAt(4) == '1')
+		{
+			System.out.println("Classroom #3: Teacher applied Hand Sanitizer after class");
+		}
+		else {
+			System.out.println("Classroom #3: Alarm (Sensor 4) Teacher did not apply Hand Sanitizer after class");
+		}
+		
+		
+		
+		
+		
+		//Leaving Classroom #1
+		for (int i = 1; i <= classANumStudents; i++)
+		{
+				System.out.println("Classroom #1: Student " + i + " has left the classroom");
+		}
+		System.out.println("Classroom #1: Teacher has left the classroom");
+		
+		//Leaving Classroom #2
+		for (int i = 1; i <= classBNumStudents; i++)
+		{
+				System.out.println("Classroom #2: Student " + i + " has left the classroom");
+		}
+		System.out.println("Classroom #2: Teacher has left the classroom");
+		
+		//Leaving Classroom #3
+		for (int i = 1; i <= classCNumStudents; i++)
+		{
+				System.out.println("Classroom #3: Student " + i + " has left the classroom");
+		}
+		System.out.println("Classroom #3: Teacher has left the classroom");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		return "Ran Simulation";
 	}

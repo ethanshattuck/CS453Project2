@@ -18,3 +18,9 @@ public class HelloWorldClient {
     System.out.println(response);
    }
 }
+
+
+//seatNumber, maskOn: 0, lysolBefore: 1, question: 2, visit: 3, lysolAfter: 4, handSanitizer: 5
+
+
+//teacher: maskOn: 0, lysolBefore: 1, question: 2, lysolAfter: 3 handSanitizer: 4
