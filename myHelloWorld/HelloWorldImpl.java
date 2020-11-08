@@ -31,7 +31,7 @@ public class HelloWorldImpl implements HelloWorld{
 		for (int i = 1; i <= classANumStudents; i++)
 		{
 				System.out.println("Classroom #1: Student " + i + " has sat down at seat #" + classAVars[i].charAt(0) + ";");
-				returnStr += "Classroom #1: Student " + i + " has sat down at seat #" + classAVars[i].charAt(0) + ";"
+				returnStr += "Classroom #1: Student " + i + " has sat down at seat #" + classAVars[i].charAt(0) + ";";
 				
 		}
 		System.out.println("Classroom #1: Teacher has taken their seat");

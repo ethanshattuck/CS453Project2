@@ -282,7 +282,7 @@ public class HelloWorldClient {
     	 Data for teacher1
     	 ************************/
     	 //teacher: maskOn: 0, lysolBefore: 1, question: 2, lysolAfter: 3 handSanitizer: 4
-    	 teacher1 = "1 ";
+    	 teacher1 = "";
     	 
     	 System.out.println("\nPlease enter the following data for the teacher:");
     	 //maskOn
@@ -345,7 +345,7 @@ public class HelloWorldClient {
     	 Data for teacher2
     	 ************************/
     	 //teacher: maskOn: 0, lysolBefore: 1, question: 2, lysolAfter: 3 handSanitizer: 4
-    	 teacher2 = "2 ";
+    	 teacher2 = "";
     	 
     	 System.out.println("\nPlease enter the following data for the teacher:");
     	 //maskOn
@@ -408,7 +408,7 @@ public class HelloWorldClient {
     	 Data for teacher3
     	 ************************/
     	 //teacher: maskOn: 0, lysolBefore: 1, question: 2, lysolAfter: 3 handSanitizer: 4
-    	 teacher3 = "3 ";
+    	 teacher3 = "";
     	 
     	 System.out.println("\nPlease enter the following data for teacher3:");
     	 //maskOn
@@ -470,13 +470,13 @@ public class HelloWorldClient {
     	 
     	 
     	//String response = myinterface.runSimulation(roomA, roomB, roomC, teacherData);
-    	
+    	roomA += " " + teacher1;
+		roomB += " " + teacher2;
+		roomC += " " + teacher3;
+		
     	System.out.println();
         System.out.println(roomA);
         System.out.println(roomB);
         System.out.println(roomC);
-        System.out.println(teacher1);
-        System.out.println(teacher2);
-        System.out.println(teacher3);
 	}
 }
