@@ -226,9 +226,51 @@ public class HelloWorldImpl implements HelloWorld{
 		}
 		
 		
+		//Visit logic (Classroom #2)
+		for (int i = 1; i <= classBNumStudents; i++)
+		{
+			char destination = classBVars[i].charAt(4);
+			char seat = classBVars[i].charAt(0);
+			boolean occupied = false;
+			for (int j = 1; j <= classBNumStudents; j++)
+			{
+				if (classBVars[j].charAt(0) == destination && classBVars[j].charAt(0) != seat)
+				{
+					occupied = true;
+					System.out.println("Classroom #2: Alarm (Sensor 1) Student " + i + " visits Student " + j + "s desk");
+					System.out.println("Classroom #2: Student " + i + " returns to designated desk");
+				}
+			}
+			if (occupied == false && destination != '0')
+			{
+				System.out.println("Classroom #2: Student " + i + " visits Rectangle " + destination);
+				System.out.println("Classroom #2: Student " + i + " returns to designated desk");
+			}
+		}
 		
-		//-------Insert Question and Visit Logic--------------------/////
 		
+		//Visit logic (Classroom #3)
+		for (int i = 1; i <= classCNumStudents; i++)
+		{
+			char destination = classCVars[i].charAt(4);
+			char seat = classCVars[i].charAt(0);
+			boolean occupied = false;
+			for (int j = 1; j <= classCNumStudents; j++)
+			{
+				if (classCVars[j].charAt(0) == destination && classCVars[j].charAt(0) != seat)
+				{
+					occupied = true;
+					System.out.println("Classroom #3: Alarm (Sensor 1) Student " + i + " visits Student " + j + "s desk");
+					System.out.println("Classroom #3: Student " + i + " returns to designated desk");
+				}
+			}
+			if (occupied == false && destination != '0')
+			{
+				System.out.println("Classroom #3: Student " + i + " visits Rectangle " + destination);
+				System.out.println("Classroom #3: Student " + i + " returns to designated desk");
+			}
+		}
+				
 		
 		
 		
