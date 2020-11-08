@@ -17,6 +17,7 @@ public class HelloWorldImpl implements HelloWorld{
 	public String runSimulation(String classA, String classB, String classC) {
 		
 		//build objects and rum simulation
+		String returnStr = "";
 		String[] classAVars = classA.split(" ");
 		String[] classBVars = classB.split(" ");
 		String[] classCVars = classC.split(" ");
@@ -29,7 +30,9 @@ public class HelloWorldImpl implements HelloWorld{
 		//Seating Classroom #1
 		for (int i = 1; i <= classANumStudents; i++)
 		{
-				System.out.println("Classroom #1: Student " + i + " has sat down at seat #" + classAVars[i].charAt(0));
+				System.out.println("Classroom #1: Student " + i + " has sat down at seat #" + classAVars[i].charAt(0) + ";");
+				returnStr += "Classroom #1: Student " + i + " has sat down at seat #" + classAVars[i].charAt(0) + ";"
+				
 		}
 		System.out.println("Classroom #1: Teacher has taken their seat");
 		
@@ -46,6 +49,7 @@ public class HelloWorldImpl implements HelloWorld{
 				System.out.println("Classroom #3: Student " + i + " has sat down at seat #" + classCVars[i].charAt(0));
 		}
 		System.out.println("Classroom #3: Teacher has taken their seat");
+		
 		
 		//Mask Check for Classroom #1
 		for (int i = 1; i <= classANumStudents; i++)
@@ -104,7 +108,7 @@ public class HelloWorldImpl implements HelloWorld{
 			System.out.println("Classroom #3: ALARM (Sensor 2) Teacher is not wearing their mask");
 		}
 		
-		// Before Class (Classroom #1)
+		//Lysol Before Class (Classroom #1)
 		for (int i = 1; i <= classANumStudents; i++)
 		{
 			if (classAVars[i].charAt(2) == '1')
@@ -154,7 +158,7 @@ public class HelloWorldImpl implements HelloWorld{
 				System.out.println("Classroom #3: Alarm (Sensor 3) Student " + i + " did not apply Lysol before class");
 			}
 		}
-		if (classAVars[classCNumStudents+1].charAt(1) == '1')
+		if (classCVars[classCNumStudents+1].charAt(1) == '1')
 		{
 			System.out.println("Classroom #3: Teacher applied Lysol before class");
 		}
