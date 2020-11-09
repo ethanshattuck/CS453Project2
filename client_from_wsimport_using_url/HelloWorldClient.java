@@ -5,8 +5,12 @@ import java.util.*;
 
 public class HelloWorldClient {
 	public static void main(String[] args) {
+		
+		HelloWorldImplService myHelloWorld = new HelloWorldImplService();
 
-	Scanner input = new Scanner(System.in);
+		HelloWorld myinterface = myHelloWorld.getHelloWorldImplPort();
+		
+		Scanner input = new Scanner(System.in);
     	String roomA, roomB, roomC, teacher1,teacher2, teacher3, tempS;     //string vars to hold data for everything and a temporary String
     	
     	
@@ -469,14 +473,14 @@ public class HelloWorldClient {
     	 
     	 
     	 
-    	//String response = myinterface.runSimulation(roomA, roomB, roomC, teacherData);
     	roomA += " " + teacher1;
 		roomB += " " + teacher2;
 		roomC += " " + teacher3;
 		
+		String response = myinterface.runSimulation(roomA, roomB, roomC);
+
+		
     	System.out.println();
-        System.out.println(roomA);
-        System.out.println(roomB);
-        System.out.println(roomC);
+		System.out.println(response);
 	}
 }

@@ -435,7 +435,7 @@ public class HelloWorldImpl implements HelloWorld{
 		
 		
 		
-		return "Ran Simulation";
+		return returnStr;
 	}
  
 }
