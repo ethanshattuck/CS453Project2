@@ -16,6 +16,9 @@ public class HelloWorldImpl implements HelloWorld{
 	@Override
 	public String runSimulation(String classA, String classB, String classC) {
 		
+		
+		System.out.println(classA + "..." + classB + "..." + classC);
+		
 		//build objects and rum simulation
 		String returnStr = "";
 		String[] classAVars = classA.split(" ");

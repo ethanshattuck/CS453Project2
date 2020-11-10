@@ -478,9 +478,18 @@ public class HelloWorldClient {
 		roomC += " " + teacher3;
 		
 		String response = myinterface.runSimulation(roomA, roomB, roomC);
+		
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		
+		String[] messages = response.split(";");
+		for (int i = 0; i < messages.length; i++)
+		{
+			System.out.println(messages[i]);
+		}
 
 		
-    	System.out.println();
-		System.out.println(response);
+
 	}
 }
